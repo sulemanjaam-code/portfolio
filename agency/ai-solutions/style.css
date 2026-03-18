@@ -1,0 +1,200 @@
+/* ============================================
+   SERVICE DETAIL PAGE STYLES
+   Clean, Professional, Enterprise UI
+   ============================================ */
+
+:root {
+  --sd-accent: #3B82F6; /* Default Blue, will be overridden or adjusted */
+  --sd-accent-glow: rgba(59, 130, 246, 0.15);
+}
+
+.agency-v3-main {
+  padding-top: 80px; /* Offset for fixed header */
+}
+
+/* --- Hero Section --- */
+.service-detail-hero {
+  padding: 100px 0 80px;
+  position: relative;
+  overflow: hidden;
+  background: var(--ag-bg);
+}
+
+.hero-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-glow-1 {
+  background: var(--sd-accent-glow);
+  top: -100px;
+  left: -100px;
+}
+
+.hero-glow-2 {
+  background: rgba(129, 140, 248, 0.1);
+  bottom: -100px;
+  right: -100px;
+}
+
+.hero-v3-title {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-v3-subtitle {
+  color: var(--ag-gray);
+  font-size: 1.25rem;
+  line-height: 1.7;
+  max-width: 700px;
+}
+
+.text-glow {
+  background: linear-gradient(135deg, var(--ag-accent), var(--ag-accent2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- Content Section --- */
+.service-detail-content {
+  padding: 80px 0;
+  background: var(--ag-bg2);
+}
+
+.service-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.service-detail-card {
+  background: var(--ag-card);
+  border: 1px solid var(--ag-border);
+  border-radius: var(--ag-radius);
+  padding: 3rem 2.5rem;
+  transition: var(--ag-transition);
+}
+
+.service-detail-card:hover {
+  border-color: var(--sd-accent);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.service-detail-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: var(--ag-white);
+}
+
+.service-detail-card p {
+  color: var(--ag-gray);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* --- CTA Section --- */
+.cta-v3 {
+  padding: 100px 0;
+  background: var(--ag-bg);
+}
+
+.cta-v3-box {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(129, 140, 248, 0.05));
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 24px;
+  padding: 5rem 4rem;
+  text-align: center;
+}
+
+.cta-v3-box h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.cta-v3-box p {
+  color: var(--ag-gray);
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+
+/* --- Utilities --- */
+.v3-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  color: var(--ag-accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--ag-accent);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.btn-v3-primary {
+  background: var(--ag-accent);
+  color: #fff;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  display: inline-block;
+  transition: var(--ag-transition);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.btn-v3-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .service-detail-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-v3-box {
+    padding: 3rem 1.5rem;
+  }
+  
+  .hero-v3-title {
+    font-size: 2.5rem;
+  }
+}

@@ -1,0 +1,792 @@
+/* ============================================
+   AGENCY PAGE — Complete Fresh Layout
+   Completely independent from main portfolio
+   ============================================ */
+
+/* ---- Theme ---- */
+:root {
+  --ag-bg: #0a0e1a;
+  --ag-bg2: #111827;
+  --ag-bg3: #1e293b;
+  --ag-card: rgba(255, 255, 255, 0.04);
+  --ag-border: rgba(255, 255, 255, 0.08);
+  --ag-accent: #3B82F6;
+  --ag-accent2: #818CF8;
+  --ag-white: #f8fafc;
+  --ag-gray: #94a3b8;
+  --ag-muted: #64748b;
+  --ag-radius: 16px;
+  --ag-transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---- Base ---- */
+.ag {
+  background: var(--ag-bg);
+  color: var(--ag-white);
+}
+
+/* ---- Reusable ---- */
+.ag-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ag-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.ag-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--ag-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--ag-accent);
+  animation: agPulse 2s infinite;
+}
+
+@keyframes agPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.5; }
+}
+
+.ag-accent {
+  background: linear-gradient(135deg, var(--ag-accent) 0%, var(--ag-accent2) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ag-section-head {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.ag-section-head h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin: 1rem 0 0;
+  color: var(--ag-white);
+}
+
+.ag-head-sub {
+  color: var(--ag-gray);
+  font-size: 1.15rem;
+  max-width: 600px;
+  margin: 1.5rem auto 0;
+  line-height: 1.7;
+}
+
+/* ---- Buttons ---- */
+.ag-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: var(--ag-transition);
+}
+
+.ag-btn-fill {
+  background: var(--ag-accent);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.35);
+}
+
+.ag-btn-fill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.5);
+}
+
+.ag-btn-outline {
+  background: transparent;
+  color: var(--ag-white);
+  border: 1px solid var(--ag-border);
+}
+
+.ag-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+/* ==========================================
+   1. HERO
+   ========================================== */
+.ag-hero {
+  padding: 200px 0 100px;
+  background: var(--ag-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.ag-hero::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15), transparent 70%);
+  top: -200px;
+  right: -100px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ag-hero-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.ag-hero-text h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 1.5rem 0;
+  letter-spacing: -0.02em;
+}
+
+.ag-hero-text p {
+  color: var(--ag-gray);
+  font-size: 1.2rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 540px;
+}
+
+.ag-hero-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Stats grid on right */
+.ag-hero-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.ag-stat-card {
+  background: var(--ag-card);
+  border: 1px solid var(--ag-border);
+  border-radius: var(--ag-radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: var(--ag-transition);
+}
+
+.ag-stat-card:hover {
+  border-color: var(--ag-accent);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.ag-stat-big {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--ag-accent), var(--ag-accent2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.ag-stat-sub {
+  font-size: 0.8rem;
+  color: var(--ag-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ==========================================
+   2. SERVICES
+   ========================================== */
+.ag-services {
+  padding: 8rem 0;
+  background: var(--ag-bg2);
+}
+
+/* ---- Flip Cards ---- */
+.ag-svc-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ag-accent);
+}
+
+.ag-svc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.ag-flip-wrap {
+  perspective: 1000px;
+  height: 280px;
+}
+
+.ag-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.ag-flip-wrap:hover .ag-flip-inner,
+.ag-flip-wrap.flipped .ag-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.ag-flip-front,
+.ag-flip-back {
+  position: absolute;
+  inset: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: var(--ag-radius);
+  border: 1px solid var(--ag-border);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ag-flip-front {
+  background: var(--ag-card);
+}
+
+.ag-flip-front h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.ag-flip-front p {
+  color: var(--ag-gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.ag-flip-back {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(129, 140, 248, 0.08));
+  border-color: var(--ag-accent);
+  transform: rotateY(180deg);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.ag-flip-back h4 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.ag-flip-tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.ag-flip-tags li {
+  padding: 0.35rem 0.9rem;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.8rem;
+  color: var(--ag-white);
+  font-weight: 500;
+}
+
+.ag-flip-link {
+  margin-top: 1rem;
+  color: var(--ag-accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: var(--ag-transition);
+}
+
+.ag-flip-link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================
+   3. WHY US
+   ========================================== */
+.ag-why {
+  padding: 8rem 0;
+  background: var(--ag-bg);
+}
+
+.ag-why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.ag-why-card {
+  background: var(--ag-card);
+  border: 1px solid var(--ag-border);
+  border-radius: var(--ag-radius);
+  padding: 3rem 2rem;
+  text-align: center;
+  transition: var(--ag-transition);
+}
+
+.ag-why-card:hover {
+  border-color: var(--ag-accent);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.ag-why-num {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--ag-accent), var(--ag-accent2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+  line-height: 1;
+}
+
+.ag-why-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.ag-why-card p {
+  color: var(--ag-gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   4. PROCESS — Horizontal Steps
+   ========================================== */
+.ag-process {
+  padding: 8rem 0;
+  background: var(--ag-bg2);
+}
+
+.ag-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.ag-step {
+  text-align: center;
+  position: relative;
+  padding: 2rem 1.5rem;
+}
+
+.ag-step-num {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: rgba(59, 130, 246, 0.15);
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.ag-step-line {
+  width: 40px;
+  height: 3px;
+  background: var(--ag-accent);
+  margin: 0 auto 1.5rem;
+  border-radius: 2px;
+}
+
+.ag-step h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.ag-step p {
+  color: var(--ag-gray);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   5. CTA
+   ========================================== */
+.ag-cta {
+  padding: 8rem 0;
+  background: var(--ag-bg);
+}
+
+.ag-cta-inner {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(129, 140, 248, 0.05));
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 24px;
+  padding: 5rem 4rem;
+  text-align: center;
+}
+
+.ag-cta-inner h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.ag-cta-inner p {
+  color: var(--ag-gray);
+  font-size: 1.15rem;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+
+.ag-cta-inner .ag-hero-btns {
+  justify-content: center;
+}
+
+/* ==========================================
+   FOOTER (keep existing styles)
+   ========================================== */
+.agency-footer {
+  background: #060912;
+  padding: 5rem 0 2rem;
+  border-top: 1px solid var(--ag-border);
+}
+
+.agency-footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--ag-border);
+}
+
+.agency-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.footer-col-desc {
+  color: var(--ag-gray);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.agency-footer-socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.agency-footer-socials a {
+  color: var(--ag-muted);
+  transition: var(--ag-transition);
+}
+
+.agency-footer-socials a:hover {
+  color: var(--ag-accent);
+}
+
+.footer-col-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: var(--ag-gray);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: var(--ag-transition);
+}
+
+.footer-links a:hover {
+  color: var(--ag-white);
+}
+
+.agency-footer-bottom {
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.agency-footer-copy {
+  color: var(--ag-muted);
+  font-size: 0.85rem;
+}
+
+/* ==========================================
+   HEADER / NAVBAR FIX FOR AGENCY PAGE
+   The root CSS uses .navbar, agency uses .header
+   ========================================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0.9rem 2rem;
+  background: rgba(10, 14, 26, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--ag-border);
+  transition: var(--ag-transition);
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 1200px) {
+  .ag-hero-grid {
+    gap: 3rem;
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .ag-hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .ag-hero-text p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ag-hero-btns {
+    justify-content: center;
+  }
+
+  .ag-hero-stats {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .ag-why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ag-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .agency-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .ag-section-head h2 {
+    font-size: 2.2rem;
+  }
+
+  .ag-hero-text h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile Navbar */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100vh;
+    height: 100dvh;
+    background: rgba(10, 14, 26, 0.95);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    flex-direction: column;
+    padding: 5rem 2rem 2rem;
+    gap: 0.5rem;
+    border-left: 1px solid var(--ag-border);
+    transform: translateX(100%);
+    transition: transform var(--ag-transition);
+    z-index: 999;
+  }
+
+  .nav-links.open {
+    transform: translateX(0);
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* Services / Flip Cards */
+  .ag-svc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ag-flip-wrap {
+    height: 260px;
+  }
+
+  /* Content Text */
+  .ag-hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .ag-hero-text p {
+    font-size: 1rem;
+  }
+
+  .ag-section-head h2 {
+    font-size: 1.8rem;
+  }
+
+  .ag-head-sub {
+    font-size: 1rem;
+  }
+
+  /* CTA */
+  .ag-cta-inner {
+    padding: 3rem 1.5rem;
+  }
+
+  .ag-cta-inner h2 {
+    font-size: 1.6rem;
+  }
+
+  /* Footer */
+  .agency-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .ag-hero {
+    padding: 140px 0 50px;
+  }
+
+  .ag-hero-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ag-stat-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .ag-stat-big {
+    font-size: 1.8rem;
+  }
+
+  .ag-why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ag-why-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .ag-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .ag-hero-text h1 {
+    font-size: 1.7rem;
+  }
+
+  .ag-section-head h2 {
+    font-size: 1.5rem;
+  }
+
+  .ag-hero-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ag-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ag-flip-wrap {
+    height: 240px;
+  }
+
+  .ag-flip-front,
+  .ag-flip-back {
+    padding: 1.5rem;
+  }
+
+  .ag-cta-inner {
+    padding: 2.5rem 1.5rem;
+  }
+
+  /* Footer */
+  .agency-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .agency-footer {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  /* Services & Process sections */
+  .ag-services,
+  .ag-why,
+  .ag-process,
+  .ag-cta {
+    padding: 5rem 0;
+  }
+
+  .ag-section-head {
+    margin-bottom: 3rem;
+  }
+}

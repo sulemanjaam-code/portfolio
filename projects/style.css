@@ -1,0 +1,341 @@
+/* ============================================
+   PROJECTS PAGE — Standalone Clean UI
+   Warm Emerald / Mint theme
+   ============================================ */
+
+/* --- Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+/* --- Theme --- */
+:root {
+  --pj-bg: #0c1117;
+  --pj-bg2: #131a22;
+  --pj-card: rgba(255, 255, 255, 0.03);
+  --pj-border: rgba(255, 255, 255, 0.07);
+  --pj-accent: #10b981;
+  --pj-accent2: #34d399;
+  --pj-white: #f0fdf4;
+  --pj-gray: #94a3b8;
+  --pj-muted: #64748b;
+  --pj-radius: 18px;
+  --pj-tr: 0.3s ease;
+}
+
+/* --- Reset --- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--pj-bg);
+  color: var(--pj-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* --- Container --- */
+.pj-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* --- Header --- */
+.pj-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem 2rem;
+  background: rgba(12, 17, 23, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--pj-border);
+}
+
+.pj-nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pj-logo {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.pj-logo-icon {
+  color: var(--pj-accent);
+  font-size: 1rem;
+}
+
+.pj-nav-links {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.pj-nav-links a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--pj-muted);
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  transition: var(--pj-tr);
+}
+
+.pj-nav-links a:hover {
+  color: var(--pj-white);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* --- Tag --- */
+.pj-tag {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--pj-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Highlight --- */
+.pj-highlight {
+  background: linear-gradient(135deg, var(--pj-accent), var(--pj-accent2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- Hero --- */
+.pj-hero {
+  padding: 180px 0 80px;
+  text-align: center;
+}
+
+.pj-hero h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.pj-hero p {
+  color: var(--pj-gray);
+  font-size: 1.1rem;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* --- Categories Grid --- */
+.pj-categories {
+  padding: 2rem 0 6rem;
+}
+
+.pj-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.pj-card {
+  background: var(--pj-card);
+  border: 1px solid var(--pj-border);
+  border-radius: var(--pj-radius);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: var(--pj-tr);
+  cursor: pointer;
+}
+
+.pj-card:hover {
+  border-color: var(--pj-accent);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(16, 185, 129, 0.15);
+}
+
+.pj-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pj-accent);
+  transition: var(--pj-tr);
+}
+
+.pj-card:hover .pj-card-icon {
+  background: rgba(16, 185, 129, 0.15);
+  transform: scale(1.08);
+}
+
+.pj-card h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.pj-card p {
+  color: var(--pj-gray);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.pj-card-cta {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--pj-muted);
+  transition: var(--pj-tr);
+}
+
+.pj-card:hover .pj-card-cta {
+  color: var(--pj-accent);
+}
+
+/* --- CTA --- */
+.pj-cta {
+  padding: 4rem 0 6rem;
+}
+
+.pj-cta-box {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(52, 211, 153, 0.04));
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 22px;
+  padding: 4rem 3rem;
+  text-align: center;
+}
+
+.pj-cta-box h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.pj-cta-box p {
+  color: var(--pj-gray);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+.pj-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  background: var(--pj-accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+  transition: var(--pj-tr);
+}
+
+.pj-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.45);
+}
+
+/* --- Footer --- */
+.pj-footer {
+  border-top: 1px solid var(--pj-border);
+  padding: 2rem 0;
+}
+
+.pj-footer .pj-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pj-footer p {
+  color: var(--pj-muted);
+  font-size: 0.82rem;
+}
+
+.pj-footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.pj-footer-links a {
+  color: var(--pj-muted);
+  font-size: 0.85rem;
+  transition: var(--pj-tr);
+}
+
+.pj-footer-links a:hover {
+  color: var(--pj-white);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .pj-hero {
+    padding: 140px 0 50px;
+  }
+
+  .pj-hero h1 {
+    font-size: 2rem;
+  }
+
+  .pj-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pj-cta-box {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .pj-nav-links {
+    gap: 0;
+  }
+
+  .pj-nav-links a {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .pj-container {
+    padding: 0 1rem;
+  }
+
+  .pj-hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .pj-hero p {
+    font-size: 0.95rem;
+  }
+
+  .pj-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .pj-footer .pj-container {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
